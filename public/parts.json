@@ -1,0 +1,90 @@
+[
+    {
+      "name": "AIR FILTERS",
+      "img": "",
+      "description": "",
+      "min order quantity": 15,
+      "available quantity": 65,
+      "price (per unit price)": "$220"
+    },
+    {
+      "name": "BRAKE DISC",
+      "img": "",
+      "description": "",
+      "min order quantity": 20,
+      "available quantity": 150,
+      "price (per unit price)": "$30"
+    },
+    {
+      "name": "CAR ACCUMULATOR",
+      "img": "",
+      "description": "",
+      "min order quantity": 5,
+      "available quantity": 25,
+      "price (per unit price)": "$45"
+    },
+    {
+      "name": "CONDITIONER",
+      "img": "",
+      "description": "",
+      "min order quantity": 10,
+      "available quantity": 30,
+      "price (per unit price)": "$25"
+    },
+    {
+      "name": "COOLERS",
+      "img": "",
+      "description": "",
+      "min order quantity": 7,
+      "available quantity": 28,
+      "price (per unit price)": "$250"
+    },
+    {
+      "name": "COUPLING PART",
+      "img": "",
+      "description": "",
+      "min order quantity": 5,
+      "available quantity": 20,
+      "price (per unit price)": "$9"
+    },
+    {
+      "name": "GENERATOR",
+      "img": "",
+      "description": "",
+      "min order quantity": 5,
+      "available quantity": 100,
+      "price (per unit price)": "$350"
+    },
+    {
+      "name": "MOTOR OIL",
+      "img": "",
+      "description": "",
+      "min order quantity": 3,
+      "available quantity": 30,
+      "price (per unit price)": "$88"
+    },
+    {
+      "name": "OIL FILTER",
+      "img": "",
+      "description": "",
+      "min order quantity": 2,
+      "available quantity": 14,
+      "price (per unit price)": "$25"
+    },
+    {
+      "name": "SPARKS",
+      "img": "",
+      "description": "",
+      "min order quantity": 4,
+      "available quantity": 40,
+      "price (per unit price)": "$15"
+    },
+    {
+      "name": "WHEEL RIM",
+      "img": "",
+      "description": "",
+      "min order quantity": 2,
+      "available quantity": 33,
+      "price (per unit price)": "$40"
+    }
+]
