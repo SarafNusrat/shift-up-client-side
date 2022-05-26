@@ -2,89 +2,89 @@
     {
         "name": "AIR FILTERS",
         "img": "https://i.ibb.co/zH9kjC4/Air-Filters.jpg",
-        "description": "",
-        "min order quantity": 15,
-        "available quantity": 65,
-        "price (per unit price)": "$220"
+        "description": "Best equipment to trap dirt and debris and keep them away from harming the engine of the car.",
+        "min_order_quantity": 15,
+        "available_quantity": 65,
+        "price_per_unit": "$220"
     },
     {
         "name": "BRAKE DISC",
         "img": "https://i.ibb.co/tX9GzfV/Brake-Disc.jpg",
-        "description": "",
-        "min order quantity": 20,
-        "available quantity": 150,
-        "price (per unit price)": "$30"
+        "description": "The rotating part of a wheel's disc brake assembly, against which the brake pads are applied.",
+        "min_order_quantity": 20,
+        "available_quantity": 150,
+        "price_per_unit": "$30"
     },
     {
         "name": "CAR ACCUMULATOR",
         "img": "https://i.ibb.co/HTB2QkN/Car-Accumulator.jpg",
-        "description": "",
-        "min order quantity": 5,
-        "available quantity": 25,
-        "price (per unit price)": "$45"
+        "description": "It provides compressor protection, preventing compressor failure dur to liquid slugging.",
+        "min_order_quantity": 5,
+        "available_quantity": 25,
+        "price_per_unit": "$45"
     },
     {
         "name": "CONDITIONER",
         "img": "https://i.ibb.co/f4CR8mT/Conditioner.jpg",
-        "description": "",
-        "min order quantity": 10,
-        "available quantity": 30,
-        "price (per unit price)": "$25"
+        "description": "It allows the car to cool the interior air of the vehicle, providing a cooler environment.",
+        "min_order_quantity": 10,
+        "available_quantity": 30,
+        "price_per_unit": "$25"
     },
     {
         "name": "COOLERS",
         "img": "https://i.ibb.co/M8SvQmf/Coolers.jpg",
-        "description": "",
-        "min order quantity": 7,
-        "available quantity": 28,
-        "price (per unit price)": "$250"
+        "description": "It is an automobile window-mounted evaporative air cooler, referred to as a swamp cooler.",
+        "min_order_quantity": 7,
+        "available_quantity": 28,
+        "price_per_unit": "$250"
     },
     {
         "name": "COUPLING PART",
         "img": "https://i.ibb.co/nzFgC60/Coupling-Part.jpg",
-        "description": "",
-        "min order quantity": 5,
-        "available quantity": 20,
-        "price (per unit price)": "$9"
+        "description": "Mechanical element part that connects two shafts together to accurately transmit the power.",
+        "min_order_quantity": 5,
+        "available_quantity": 20,
+        "price_per_unit": "$9"
     },
     {
         "name": "GENERATOR",
         "img": "https://i.ibb.co/NszDkwc/Generator.jpg",
-        "description": "",
-        "min order quantity": 5,
-        "available quantity": 100,
-        "price (per unit price)": "$350"
+        "description": "It utilizes a car's alternator to supply power to external appliances like a home furnace, refrigerator.",
+        "min_order_quantity": 5,
+        "available_quantity": 100,
+        "price_per_unit": "$350"
     },
     {
         "name": "MOTOR OIL",
         "img": "https://i.ibb.co/FnNjy7D/Motor-Oil.jpg",
-        "description": "",
-        "min order quantity": 3,
-        "available quantity": 30,
-        "price (per unit price)": "$88"
+        "description": "One of various substances used for the lubrication of internal combustion engines.",
+        "min_order_quantity": 3,
+        "available_quantity": 30,
+        "price_per_unit": "$88"
     },
     {
         "name": "OIL FILTER",
         "img": "https://i.ibb.co/gj6VqS9/Oil-Filter.jpg",
-        "description": "",
-        "min order quantity": 2,
-        "available quantity": 14,
-        "price (per unit price)": "$25"
+        "description": "It isncased in a small capsule with various components inside that are used to filter out contaminants within the oil.",
+        "min_order_quantity": 2,
+        "available_quantity": 14,
+        "price_per_unit": "$25"
     },
     {
         "name": "SPARKS",
         "img": "https://i.ibb.co/k3Y3N4w/Sparks.jpg",
-        "description": "",
-        "min order quantity": 4,
-        "available quantity": 40,
-        "price (per unit price)": "$15"
+        "description": "These are simple [lugs that creates an explosion which makes your engine produce power.",
+        "min_order_quantity": 4,
+        "available_quantity": 40,
+        "price_per_unit": "$15"
     },
     {
         "name": "WHEEL RIM",
         "img": "https://i.ibb.co/ByQCGyG/Wheel-Rim.jpg",
-        "description": "",
-        "min order quantity": 2,
-        "available quantity": 33,
-        "price (per unit price)": "$40"
+        "description": "It is the metal part that is the outer edge of a wheel which holds the tire. ",
+        "min_order_quantity": 2,
+        "available_quantity": 33,
+        "price_per_unit": "$40"
     }
 ]
