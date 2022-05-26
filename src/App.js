@@ -7,12 +7,12 @@ import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import NotFound from './components/NotFound/NotFound';
 import Purchase from './components/Purchase/Purchase';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 
 function App() {
   return (
     <div>
-      <h2>hello</h2>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -28,6 +28,7 @@ function App() {
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

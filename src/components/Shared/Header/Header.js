@@ -16,7 +16,7 @@ const Header = () => {
 
     return (
         <div>
-            <nav className="container flex flex-wrap justify-between items-center mx-auto px-2 py-3 relative bg-red-500 mb-3">
+            <nav className="container flex flex-wrap justify-between items-center mx-auto py-2 relative">
                 <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
                     <div className="w-full container flex flex-wrap justify-between items-center mx-auto relative">
                         <button
@@ -38,60 +38,48 @@ const Header = () => {
                         <ul className="flex flex-col lg:flex-row list-none lg:mx-auto lg:px-16">
                             <li className="nav-item ">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-black hover:text-orange-700"
                                     to="/"
                                 >
-                                    <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Home</span>
+                                    <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">HOME</span>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/inventory"
-                                >
-                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Manage Inventory</span>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
+
+                            {/* <li className="nav-item">
                             {
                                 user &&
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75"
                                     to="/addNewItem"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Add New Item</span>
                                 </Link>
                             }
-                            </li>
+                            </li> */}
+
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
                                     to="/blogs"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Blogs</span>
                                 </Link>
                             </li>
+
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/aboutUs"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
+                                    to="/myPortfolio"
                                 >
-                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">About Us</span>
+                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Portfolio</span>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/ourTeam"
-                                >
-                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Our Team</span>
-                                </Link>
-                            </li>
+
                             <li className="nav-item">
                             {
                                  user && 
                                  <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
                                     to="/myItems"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Items</span>
@@ -105,7 +93,7 @@ const Header = () => {
                                 <button className='fab fa-twitter ml-4 px-4 align-middle text-1xl text-black-100 font-semibold bg-white border-white opacity-75' onClick={handleSignOut}>Log Out</button>
                                 :
                                 <Link
-                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                        className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
                                         to="/login"
                                     >
                                         <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Login</span>
