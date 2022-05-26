@@ -38,7 +38,7 @@ const Header = () => {
                         <ul className="flex flex-col lg:flex-row list-none lg:mx-auto lg:px-16">
                             <li className="nav-item ">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-black hover:text-orange-700"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-black hover:text-orange-600"
                                     to="/"
                                 >
                                     <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">HOME</span>

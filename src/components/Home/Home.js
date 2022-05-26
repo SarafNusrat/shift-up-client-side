@@ -14,7 +14,7 @@ const Home = () => {
             {/* Car Parts */}
             <div>
                 <div>
-                    <h4 className="font-bold text-center sm:text-4xl text-3xl mt-16 pt-6 mb-6 text-orange-600">PARTS COLLECTION</h4>
+                    <h4 className="font-bold bg-gray-100 text-center sm:text-4xl text-3xl mt-16 pt-6 mb-6 text-orange-600">PARTS COLLECTION</h4>
                 </div>
                 <HomeParts></HomeParts>
                 {/* <div className="relative mt-8 h-30 w-auto">
