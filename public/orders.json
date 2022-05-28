@@ -1,0 +1,44 @@
+[
+    {
+        "email": "saraf.nusrat11@gmail.com",
+        "product_name": "BRAKE DISC",
+        "img": "https://i.ibb.co/tX9GzfV/Brake-Disc.jpg",
+        "purchased_quantity": 22
+    },
+    {
+        "email": "tasnimn483@gmail.com",
+        "product_name": "BRAKE DISC",
+        "img": "https://i.ibb.co/tX9GzfV/Brake-Disc.jpg",
+        "purchased_quantity": 31
+    },
+    {
+        "email": "saraf.nusrat11@gmail.com",
+        "product_name": "COUPLING PART",
+        "img": "https://i.ibb.co/nzFgC60/Coupling-Part.jpg",
+        "purchased_quantity": 10
+    },
+    {
+        "email": "tasnimn483@gmail.com",
+        "product_name": "COOLERS",
+        "img": "https://i.ibb.co/M8SvQmf/Coolers.jpg",
+        "purchased_quantity": 14
+    },
+    {
+        "email": "saraf.nusrat11@gmail.com",
+        "name": "OIL FILTER",
+        "img": "https://i.ibb.co/gj6VqS9/Oil-Filter.jpg",
+        "purchased_quantity": 3
+    },
+    {
+        "email": "tasnimn483@gmail.com",
+        "product_name": "BRAKE DISC",
+        "img": "https://i.ibb.co/tX9GzfV/Brake-Disc.jpg",
+        "purchased_quantity": 50
+    },
+    {
+        "email": "saraf.nusrat11@gmail.com",
+        "product_name": "GENERATOR",
+        "img": "https://i.ibb.co/NszDkwc/Generator.jpg",
+        "purchased_quantity": 20
+    } 
+]

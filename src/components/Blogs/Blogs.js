@@ -40,7 +40,7 @@ const Blogs = () => {
                         <h2 className='font-bold text-orange-600'>5. You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
                         <br></br>
                         <p>Let's assume the array name is "products" and each product has an unique name. Now, if I want to search the product named iPhone, I would write this code:<br></br>
-                            products.find (product => product.name === "iPhone")</p><br></br>
+                            products.find (product {'=>'} product.name === "iPhone")</p><br></br>
                             <p>The above code will show a single product named iPhone.</p>
                     </div>
 

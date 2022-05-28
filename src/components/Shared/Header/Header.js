@@ -28,6 +28,7 @@ const Header = () => {
                             <img src={menuIcon} alt=""></img>
                         </button>
                     </div>
+
                     <div
                         className={
                             "lg:flex flex-grow items-center" +
@@ -68,13 +69,14 @@ const Header = () => {
                                     user &&
                                     <Link
                                         className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
-                                        to="/myItems"
+                                        to="/dashboard"
                                     >
-                                        <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Items</span>
+                                        <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Dashboard</span>
                                     </Link>
                                 }
 
                             </li>
+
                             <li className="nav-item">
                                 {
                                     user ?
@@ -101,10 +103,13 @@ const Header = () => {
                                         Hi, I am {user.displayName}
                                     </h2>
                                 }
-
                             </li>
 
                         </ul>
+                    </div>
+
+                    <div>
+                    <label for="my-drawer-2" class="btn btn-warning top-0 right-0 drawer-button lg:hidden"><img src={menuIcon} alt=""></img></label>
                     </div>
                 </div>
             </nav>

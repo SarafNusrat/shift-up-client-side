@@ -1,6 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blogs from './components/Blogs/Blogs';
+import AddAReview from './components/Dashboard/AddAReview';
+import Dashboard from './components/Dashboard/Dashboard';
+import MyOrders from './components/Dashboard/MyOrders';
+import MyProfile from './components/Dashboard/MyProfile';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import MyPortfolio from './components/MyPortfolio/MyPortfolio';
@@ -27,6 +31,16 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+             <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
+             <Route path="addAReview" element={<AddAReview></AddAReview>}></Route>
+             <Route path="myOrders" element={<MyOrders></MyOrders>}></Route> 
+        </Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

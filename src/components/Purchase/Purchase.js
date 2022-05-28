@@ -9,8 +9,11 @@ const Purchase = () => {
     const [details, setDetails] = useState({});
     const [user, loading, error] = useAuthState(auth);
     const quantityRef = useRef('');
-    let updatedItem = {}; 
-
+    const homeAddressRef = useRef('');
+    const phoneNumberRef = useRef('');
+    let updatedItem = {};
+    
+    // get parts data from server
     useEffect(() => {
         const url = `http://localhost:5000/parts/${id}`
         fetch(url)
@@ -18,23 +21,61 @@ const Purchase = () => {
             .then(data => setDetails(data))
     }, [details])
 
-    const handleMinusButton = event => {
-        
-        event.preventDefault();
-        const quantity = details.quantity;
-        console.log('The quantity is: ', quantity);
 
-        const updatedQuantity = quantity - 1;
-        details.quantity = updatedQuantity;
-        const updatedItem = {
-            quantity: updatedQuantity
+    const handleConfirmPurchase = (event) => {
+        event.preventDefault();
+        const name = user.displayName;
+        const email = user.email;
+        const product_name = details.name;
+        const img = details.img;
+        const phone = phoneNumberRef.current.value;
+        const homeAddress = homeAddressRef.current.value;
+        const purchased_quantity = quantityRef.current.value;
+    
+        const item = {email, product_name, img, purchased_quantity};
+
+        // post data to server 
+        fetch('http://localhost:5000/orders', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(item),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(item);
+                alert('Purchase Confirmed!!');
+                event.target.reset();
+        })
+
+    }
+
+    
+    const handleMinusButton = event => {
+        event.preventDefault();
+        const quantity = parseInt(quantityRef.current.value);
+        console.log(quantity);
+       
+        if (quantity < details.min_order_quantity || quantity > details.available_quantity) {
+            console.log("wrong");
+            alert('Please provide a correct input');
+            quantityRef.current.value = 0;
         }
-        console.log('updatedItem is ', updatedItem);
-        console.log('data is ', details);
+        else {
+            console.log(quantity);
+            const newQuantity = quantity - 1;
+            quantityRef.current.value = newQuantity;
+            updatedItem = {
+                purchased_quantity: newQuantity
+            }
+        }
+
         setDetails(details);
 
         // send data to server 
         const url = `http://localhost:5000/parts/${id}`
+
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -63,7 +104,7 @@ const Purchase = () => {
         else {
             console.log(quantity);
             const newQuantity = quantity + 1;
-            
+            quantityRef.current.value = newQuantity;
             updatedItem = {
                 quantity: newQuantity
             }
@@ -126,7 +167,7 @@ const Purchase = () => {
 
                         </div>
 
-                        <form className="w-full max-w-lg mt-10 ml-10">
+                        <form onSubmit={handleConfirmPurchase} className="w-full max-w-lg mt-10 ml-10">
                         <div className="flex flex-wrap -mx-3 mb-4">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -148,7 +189,7 @@ const Purchase = () => {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Home Address
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="home_address" placeholder="Type a valid address" required></input>
+                                <input ref={homeAddressRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="home_address" placeholder="Type a valid address" required></input>
                             </div>
                         </div>
 
@@ -157,7 +198,7 @@ const Purchase = () => {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Phone Number
                                 </label>
-                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="phone_number" placeholder="Type a valid phone number" required></input>
+                                <input ref={phoneNumberRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="phone_number" placeholder="Type a valid phone number" required></input>
                             </div>
                         </div>
 
