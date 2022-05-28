@@ -19,7 +19,7 @@ const AddAReview = () => {
           
 
           // post data to server 
-          fetch('http://localhost:5000/reviews', {
+          fetch('https://warm-sierra-55591.herokuapp.com/reviews', {
               method: 'POST', 
               headers: {
                   'Content-Type': 'application/json',

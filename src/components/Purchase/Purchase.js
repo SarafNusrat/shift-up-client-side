@@ -15,7 +15,7 @@ const Purchase = () => {
     
     // get parts data from server
     useEffect(() => {
-        const url = `http://localhost:5000/parts/${id}`
+        const url = `https://warm-sierra-55591.herokuapp.com/parts/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setDetails(data))
@@ -35,7 +35,7 @@ const Purchase = () => {
         const item = {email, product_name, img, purchased_quantity};
 
         // post data to server 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://warm-sierra-55591.herokuapp.com/orders', {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Purchase = () => {
         setDetails(details);
 
         // send data to server 
-        const url = `http://localhost:5000/parts/${id}`
+        const url = `https://warm-sierra-55591.herokuapp.com/parts/${id}`
 
         fetch(url, {
             method: 'PUT',
@@ -114,7 +114,7 @@ const Purchase = () => {
         setDetails(details);
 
         // send data to server 
-        const url = `http://localhost:5000/parts/${id}`
+        const url = `https://warm-sierra-55591.herokuapp.com/parts/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

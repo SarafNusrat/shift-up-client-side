@@ -16,7 +16,7 @@ const MyOrders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myOrders?email=${email}`;
+            const url = `https://warm-sierra-55591.herokuapp.com/myOrders?email=${email}`;
             fetch(url)
                 .then(res => res.json())
                 .then(data => setOrders(data))
@@ -28,7 +28,7 @@ const MyOrders = () => {
     const handleYesBtn = _id => {
         if (showModal === true)
         {
-            const url = `http://localhost:5000/orders/${_id}`
+            const url = `https://warm-sierra-55591.herokuapp.com/orders/${_id}`
             fetch(url, {
                 method: 'DELETE',
             })
