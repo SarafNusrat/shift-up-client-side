@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Purchase = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [details, setDetails] = useState({});
+    const [user, loading, error] = useAuthState(auth);
+    const quantityRef = useRef('');
+    let updatedItem = {}; 
 
     useEffect(() => {
         const url = `http://localhost:5000/parts/${id}`
@@ -13,7 +18,8 @@ const Purchase = () => {
             .then(data => setDetails(data))
     }, [details])
 
-    const handleDeliveredButton = event => {
+    const handleMinusButton = event => {
+        
         event.preventDefault();
         const quantity = details.quantity;
         console.log('The quantity is: ', quantity);
@@ -44,17 +50,26 @@ const Purchase = () => {
             })
     }
 
-    const handleRestockButton = event => {
+    const handlePlusButton = event => {
         event.preventDefault();
-        const restock = parseInt(event.target.restock.value);
-
-        const prevQuantity = details.quantity;
-
-        const updatedQuantity = parseInt(prevQuantity + restock);
-        const updatedItem = {
-           quantity: updatedQuantity
+        const quantity = parseInt(quantityRef.current.value);
+        console.log(quantity);
+        console.log(details.min_order_quantity);
+        if (quantity < details.min_order_quantity || quantity > details.available_quantity) {
+            console.log("wrong");
+            alert('Please provide a correct input');
+            quantityRef.current.value = 0;
         }
-        
+        else {
+            console.log(quantity);
+            const newQuantity = quantity + 1;
+            
+            updatedItem = {
+                quantity: newQuantity
+            }
+        }
+
+
         setDetails(details);
 
         // send data to server 
@@ -81,32 +96,78 @@ const Purchase = () => {
                 <div>
                     <img className="mx-auto w-3/4 ml-16 mt-2" src={details.img} alt="" />
                 </div>
+
                 <div className="px-4 mr-16 mt-2 align-middle">
-                    <div className="py-4">
-                        <h4 className="font-bold text-center sm:text-5xl text-3xl mt-4 pt-4 mb-2 text-orange-600">{details.name}</h4>
-                        <p className='text-center text-1xl mb-4'>{details.description}</p>
-                        <div className='items-center justify-items-center'>
-                            <div className='text-1xl bg-gray-600 text-white font-bold pt-1 pb-6'>
-                                <p className='text-center mt-8'>PRICE: {details.price_per_unit}</p>
-                                <p className='text-center'>MINIMUM ORDER QUANTITY: {details.min_order_quantity}</p>
-                                <h4 className='text-center'>AVAILABLE QUANTITY: {details.available_quantity}</h4>
+                    <div className="py-4 items-center">
+                        <h4 className="font-bold sm:text-5xl text-3xl mt-2 pt-2 mb-2 text-orange-600">{details.name}</h4>
+                        <h4 className='font-semibold sm:text-5xl text-3xl mt-4 text-gray-600'>{details.price_per_unit}</h4>
+                        <p className='mt-8 text-1xl mb-1'>{details.description}</p>
+                        <p className='mt-1 text-1xl mb-1'>Minimum Quantity for Order: {details.min_order_quantity}</p>
+                        <p className='mt-1 text-1xl mb-4'>Available Quantity: {details.available_quantity}</p>
+
+                        <div className='items-center justify-items-center flex-auto'>
+                            <div className='flex'>
+                                <button onClick={handlePlusButton} className='ml-1 font-bold justify-items-center btn btn-warning items-center p-4 mt-4'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+
+                                <input ref={quantityRef} className="w-3/4 mx-2 mt-4 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder='Please check the minimum quantity for order' name="quantity" required></input>
+
+
+                                <button onClick={handleMinusButton} className='ml-1 font-bold justify-items-center btn btn-warning items-center p-4 mt-4'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+
                             </div>
-                            <button onClick={handleDeliveredButton} className='ml-52 justify-items-center btn btn-warning items-center p-4 mt-4'>DELIVERED</button>
+
                         </div>
+
+                        <form className="w-full max-w-lg mt-10 ml-10">
+                        <div className="flex flex-wrap -mx-3 mb-4">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Name
+                                </label>
+                                <input className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" disabled value = {user?.displayName} required></input>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap -mx-3 mb-4">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Email Address
+                                </label>
+                                <input className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="email" disabled value = {user?.email} placeholder="Email" required></input>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap -mx-3 mb-4">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Home Address
+                                </label>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="home_address" placeholder="Type a valid address" required></input>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap -mx-3 mb-4">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Phone Number
+                                </label>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="phone_number" placeholder="Type a valid phone number" required></input>
+                            </div>
+                        </div>
+
+                        <button className='bg-orange-300 mt-2 mb-4 hover:bg-orange-500 text-small text-white px-3 py-2 font-bold rounded'>Complete Purchase</button>
+                    </form>
                     </div>
                 </div>
-            </div>
-            <div class="justify-items-center flex align-middle justify-center gap-2">
-                <div>
-                    <p className='rounded block mb-2 p-2 border-black text-1xl font-bold text-center text-orange-600'>Restock The Items (in kg)</p>
-                </div>
-                <form className='flex gap-2' onSubmit={handleRestockButton}>
-                        <input type="text" name="restock" id="large-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-                        <input className="rounded block mb-2 bg-orange-600 p-2 border-1 border-black text-1xl font-bold text-center text-white" type="submit" value="RESTOCK"/>
-                </form>
+
             </div>
         </div>
-
     );
 };
 

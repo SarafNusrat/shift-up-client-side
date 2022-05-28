@@ -64,30 +64,46 @@ const Header = () => {
                             </li>
 
                             <li className="nav-item">
-                            {
-                                 user && 
-                                 <Link
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
-                                    to="/myItems"
-                                >
-                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Items</span>
-                                </Link>
-                            }
-                                
+                                {
+                                    user &&
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
+                                        to="/myItems"
+                                    >
+                                        <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Items</span>
+                                    </Link>
+                                }
+
                             </li>
                             <li className="nav-item">
-                            {
-                                user ?
-                                <button className='fab fa-twitter ml-4 px-3 items-center text-sm text-black font-bold bg-white border-white opacity-75' onClick={handleSignOut}>LOG OUT</button>
-                                :
-                                <Link
-                                        className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
-                                        to="/login"
-                                    >
-                                        <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Login</span>
-                                </Link>
-                            }
+                                {
+                                    user ?
+                                        <div className="">
+                                            <button className='flex ml-4 px-3 py-2 leading-snug items-center text-sm text-black font-bold opacity-75' onClick={handleSignOut}>LOG OUT</button>
+                                        </div>
+
+                                        :
+                                        <Link
+                                            className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
+                                            to="/login"
+                                        >
+                                            <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Login</span>
+                                        </Link>
+                                }
                             </li>
+
+                            <li className="nav-item">
+                                {
+                                    user &&
+                                    <h2
+                                        className="px-3 bg-orange-300 rounded-lg py-2 flex ml-96 right-0 text-sm uppercase font-bold leading-snug text-gray-700 hover:opacity-75"
+                                    >
+                                        Hi, I am {user.displayName}
+                                    </h2>
+                                }
+
+                            </li>
+
                         </ul>
                     </div>
                 </div>

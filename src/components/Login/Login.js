@@ -77,9 +77,17 @@ const Login = () => {
                         <div className="flex flex-wrap -mx-3 mb-4">
                             <div className="w-full px-3">
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Name
+                                </label>
+                                <input ref={emailRef} className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" disabled value = {user?.displayName} required></input>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap -mx-3 mb-4">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Email Address
                                 </label>
-                                <input ref={emailRef} className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Email" required></input>
+                                <input ref={emailRef} className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="email" placeholder="Email" required></input>
                             </div>
                         </div>
                         <div className="flex flex-wrap -mx-3 mb-4">
@@ -87,7 +95,7 @@ const Login = () => {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Password
                                 </label>
-                                <input ref={passwordRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" placeholder="Password" required></input>
+                                <input ref={passwordRef} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" name="password" placeholder="Password" required></input>
                                 <p className="text-gray-600 text-xs italic">Your password is protected</p>
                             </div>
                         </div>
