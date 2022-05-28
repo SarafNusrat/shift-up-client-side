@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
@@ -10,6 +11,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [reload, setIsReload] = useState(true);
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getOrders = async () => {
@@ -42,6 +44,11 @@ const MyOrders = () => {
         setShowModal(true);
     }
 
+    const handlePaymentBtn = () => {
+        const path = "/payment";
+        navigate(path);
+    }
+
 
     return (
         <div className='grid sm:grid-rows-1 grid-rows-1 justify-items-center gap-1'>
@@ -56,6 +63,8 @@ const MyOrders = () => {
                                             <h1 className="text-1xl font-bold text-gray-800 uppercase dark:text-white">{order.product_name}</h1>
                                             <br></br>
                                             <span className='text-gray-700 text-sm font-bold'>     Ordered Quantity: {order.purchased_quantity}       </span>
+
+                                            <button onClick={() => handlePaymentBtn()} className='bg-gray-700 text-white p-3 rounded-lg ml-4 mr-4'>PAYMENT</button>
 
                                             <label onClick={() => handleCancelBtn(order._id)} for="my-modal" class="btn modal-button">CANCEL</label>
 

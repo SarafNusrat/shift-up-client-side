@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import NotFound from './components/NotFound/NotFound';
+import Payment from './components/Payment/Payment';
 import Purchase from './components/Purchase/Purchase';
 import Registration from './components/Registration/Registration';
 import RequireAuth from './components/RequireAuth/RequireAuth';
@@ -25,6 +26,8 @@ function App() {
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/myPortfolio" element={<MyPortfolio></MyPortfolio>}></Route>
+        <Route path="/payment" element={<Payment></Payment>}></Route>
+
 
         <Route path="/parts/:id" element={
           <RequireAuth>
