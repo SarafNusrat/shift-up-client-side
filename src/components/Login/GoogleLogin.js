@@ -1,4 +1,5 @@
 // import axios from 'axios';
+import { ProviderId } from 'firebase/auth';
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -18,6 +19,10 @@ const GoggleLogin = () => {
 
     if (loading) {
         return <Loading></Loading>
+    }
+    
+    if (user) {
+        console.log(user.displayName);
     }
 
     if (error) {

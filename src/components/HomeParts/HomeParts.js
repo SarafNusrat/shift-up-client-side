@@ -6,11 +6,7 @@ import Loading from '../Shared/Loading/Loading';
 const HomeParts = () => {
     const [homeParts, setHomeParts] = useParts();
 
-    console.log(homeParts);
-
     const slicedParts = homeParts.slice(0, 6);
-
-    console.log(slicedParts);
 
     return (
         <div>

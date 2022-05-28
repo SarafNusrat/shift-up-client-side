@@ -5,7 +5,6 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import GoogleLogin from './GoogleLogin';
 import GoggleLogin from './GoogleLogin';
 
 const Login = () => {
@@ -48,6 +47,7 @@ const Login = () => {
 
         // navigate(from, { replace: true });
     } 
+    
 
     if (user) {
         navigate(from, { replace: true });

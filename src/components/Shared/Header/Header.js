@@ -38,24 +38,12 @@ const Header = () => {
                         <ul className="flex flex-col lg:flex-row list-none lg:mx-auto lg:px-16">
                             <li className="nav-item ">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-black hover:text-orange-600"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
                                     to="/"
                                 >
                                     <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">HOME</span>
                                 </Link>
                             </li>
-
-                            {/* <li className="nav-item">
-                            {
-                                user &&
-                                <Link
-                                    className="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/addNewItem"
-                                >
-                                    <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Add New Item</span>
-                                </Link>
-                            }
-                            </li> */}
 
                             <li className="nav-item">
                                 <Link
@@ -79,7 +67,7 @@ const Header = () => {
                             {
                                  user && 
                                  <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:opacity-75"
                                     to="/myItems"
                                 >
                                     <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">My Items</span>
@@ -90,7 +78,7 @@ const Header = () => {
                             <li className="nav-item">
                             {
                                 user ?
-                                <button className='fab fa-twitter ml-4 px-4 align-middle text-1xl text-black-100 font-semibold bg-white border-white opacity-75' onClick={handleSignOut}>Log Out</button>
+                                <button className='fab fa-twitter ml-4 px-3 items-center text-sm text-black font-bold bg-white border-white opacity-75' onClick={handleSignOut}>LOG OUT</button>
                                 :
                                 <Link
                                         className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-orange-600 hover:text-black"
