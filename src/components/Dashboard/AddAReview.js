@@ -49,7 +49,7 @@ const AddAReview = () => {
                                 <label className="label">
                                     <span className="label-text">Your Email Address</span>
                                 </label>
-                                <input type="text" name="email" placeholder="Enter your email address" className="input input-bordered" required/>
+                                <input type="text" name="email" disabled value = {user?.email} placeholder="Enter your email address" className="input input-bordered" required/>
                             </div>
 
                             <div className="form-control">
@@ -63,11 +63,11 @@ const AddAReview = () => {
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <input ref={descriptionRef} type="text" name="description" placeholder="Enter a short description for the product" className="input input-bordered" required/>
+                                <input ref={descriptionRef} type="text" name="description" placeholder="Write your review" className="input input-bordered" required/>
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-warning">Add Item</button>
+                                <button className="btn btn-warning">ADD REVIEW</button>
                             </div>
                         </div>
                     </div>

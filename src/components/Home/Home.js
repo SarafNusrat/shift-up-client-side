@@ -3,6 +3,7 @@ import banner from '../../images/Banner/port-img4.jpg';
 import HomeParts from '../HomeParts/HomeParts';
 import app1 from "../../images/app/shop-png9.png";
 import app2 from "../../images/app/Phone2.png";
+import ShowReviews from '../ShowReviews/ShowReviews';
 
 const Home = () => {
     return (
@@ -65,6 +66,10 @@ const Home = () => {
             </div>
 
             {/* Reviews  */}
+            <div className='mt-8'>
+               <h4 className="font-bold bg-gray-100 text-center sm:text-4xl text-3xl mt-4 pt-2 mb-6 text-orange-600">ALL REVIEWS</h4>
+               <ShowReviews></ShowReviews>
+            </div>
 
 
 
