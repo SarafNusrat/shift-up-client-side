@@ -1,10 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Blogs from './components/Blogs/Blogs';
+import AddAProduct from './components/Dashboard/AddAProduct';
 import AddAReview from './components/Dashboard/AddAReview';
 import Dashboard from './components/Dashboard/Dashboard';
+import ManageProducts from './components/Dashboard/ManageProducts';
 import MyOrders from './components/Dashboard/MyOrders';
+import ManageAllOrders from './components/Dashboard/ManageAllOrders';
 import MyProfile from './components/Dashboard/MyProfile';
+import Users from './components/Dashboard/Users';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import MyPortfolio from './components/MyPortfolio/MyPortfolio';
@@ -15,6 +20,8 @@ import Registration from './components/Registration/Registration';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
+import RequireAdmin from './components/Login/RequireAdmin';
+
 
 function App() {
   return (
@@ -43,11 +50,17 @@ function App() {
              <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
              <Route path="addAReview" element={<AddAReview></AddAReview>}></Route>
              <Route path="myOrders" element={<MyOrders></MyOrders>}></Route> 
+             <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route> 
+             <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}></Route> 
+             <Route path="addAProduct" element={<AddAProduct></AddAProduct>}></Route> 
+             <Route path="manageProducts" element={<ManageProducts></ManageProducts>}></Route> 
+
         </Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
@@ -55,10 +68,3 @@ function App() {
 export default App;
 
 
-// heroku deploy 
-// git barbar 
-// react api env for client 
-// server db connection 
-// mongodbinstall, data entry 
-// require auth for protected route
-// image upload in imgbb

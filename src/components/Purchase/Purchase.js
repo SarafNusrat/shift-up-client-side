@@ -173,7 +173,7 @@ const Purchase = () => {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Name
                                 </label>
-                                <input className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" disabled value = {user?.displayName} required></input>
+                                <input className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name"  placeholder="Enter your name" required></input>
                             </div>
                         </div>
                         <div className="flex flex-wrap -mx-3 mb-4">

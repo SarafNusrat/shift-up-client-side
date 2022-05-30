@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -16,10 +17,25 @@ const MyOrders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user.email;
-            const url = `https://warm-sierra-55591.herokuapp.com/myOrders?email=${email}`;
-            fetch(url)
-                .then(res => res.json())
-                .then(data => setOrders(data))
+            const url = `http://localhost:5000/myOrders?email=${email}`;
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    console.log('res', res);
+                    if(res.status === 401 || res.status === 403){
+                           signOut(auth);
+                           localStorage.removeItem('accessToken');
+                           navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setOrders(data);
+                });
             setIsLoaded(true);
         }
         getOrders();

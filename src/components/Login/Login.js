@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GoggleLogin from './GoogleLogin';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -22,6 +23,8 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [token] = useToken(user);
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
@@ -49,7 +52,7 @@ const Login = () => {
     } 
     
 
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
@@ -79,7 +82,7 @@ const Login = () => {
                                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                     Name
                                 </label>
-                                <input ref={emailRef} className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" disabled value = {user?.displayName} required></input>
+                                <input className="appearance-none block w-full mx-auto bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" required></input>
                             </div>
                         </div>
                         <div className="flex flex-wrap -mx-3 mb-4">

@@ -7,9 +7,11 @@ import menuIcon from '../../../images/menu-icon.png';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    console.log(user);
 
     const handleSignOut = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
 
     const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -98,9 +100,9 @@ const Header = () => {
                                 {
                                     user &&
                                     <h2
-                                        className="px-3 bg-orange-300 rounded-lg py-2 flex ml-96 right-0 text-sm uppercase font-bold leading-snug text-gray-700 hover:opacity-75"
+                                        className="px-3 bg-orange-300 rounded-lg py-3 mt-2 ml-72 right-0 text-xs font-bold leading-snug text-gray-700 hover:opacity-75"
                                     >
-                                        Hi, I am {user.displayName}
+                                        Hi, I am {user.email}
                                     </h2>
                                 }
                             </li>

@@ -4,7 +4,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-// import useToken from '../../hooks/useToken';
+import useToken from '../../hooks/useToken';
 import img1 from '../../images/google.png';
 import Loading from '../Shared/Loading/Loading';
 
@@ -14,15 +14,11 @@ const GoggleLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    // const [token] = useToken(user);
+    const [token] = useToken(user);
     let errorElement;
 
     if (loading) {
         return <Loading></Loading>
-    }
-    
-    if (user) {
-        console.log(user.displayName);
     }
 
     if (error) {
@@ -31,7 +27,7 @@ const GoggleLogin = () => {
             </div>
     }
 
-    if (user) {
+    if (token) {
         navigate(from, {replace: true});
     }
 

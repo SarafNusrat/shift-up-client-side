@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import { sendEmailVerification } from 'firebase/auth';
 import Loading from '../Shared/Loading/Loading';
 import GoggleLogin from '../Login/GoogleLogin';
-// import useToken from '../../hooks/useToken';
+import useToken from '../../hooks/useToken.js';
 
 const Registration = () => {
 
@@ -16,12 +16,12 @@ const Registration = () => {
             error,
           ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
+          const [token] = useToken(user);
+
           let errorElement;
     
           const emailRef = useRef('');
           const passwordRef = useRef('');
-
-        //   const [token] = useToken(user);
     
         const navigate = useNavigate();
     
@@ -33,7 +33,7 @@ const Registration = () => {
             createUserWithEmailAndPassword(email, password);
         }
     
-        if(user) {
+        if(token) {
             navigate('/');
         }
 
