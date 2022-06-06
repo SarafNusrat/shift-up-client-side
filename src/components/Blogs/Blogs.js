@@ -12,7 +12,7 @@ const Blogs = () => {
                         <br></br>
                         <p>There are many ways to increase the performance of a react application. Some of these are: 
                         </p>
-                        <p>1. Keeping component state local local where necessary.</p>
+                        <p>1. Keeping component state local where necessary.</p>
                         <p>2. Code-splitting in react using dynamic import().</p>
                         <p>3. Lazy loading images in react.</p>
                         <p>4. Memorizing React components to prevent unnecessary re-renders..</p>
