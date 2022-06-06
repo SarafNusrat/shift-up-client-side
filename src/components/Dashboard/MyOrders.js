@@ -17,7 +17,7 @@ const MyOrders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myOrders?email=${email}`;
+            const url = `https://warm-sierra-55591.herokuapp.com/myOrders?email=${email}`;
             fetch(url, {
                 method: 'GET',
                 headers: {

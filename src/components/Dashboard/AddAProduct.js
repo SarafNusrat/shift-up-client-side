@@ -18,7 +18,7 @@ const AddAProduct = () => {
           const item = {name, img, description, price_per_unit, min_order_quantity, available_quantity}; 
 
       // post data to server 
-      fetch('http://localhost:5000/parts', {
+      fetch('https://warm-sierra-55591.herokuapp.com/parts', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',

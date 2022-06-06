@@ -10,7 +10,7 @@ const ManageProduct = (props) => {
     const handleDeleteBtn= _id => {
         const proceed = window.confirm('Are you really sure you want to delete the product?');
         if (proceed) {
-            const url = `http://localhost:5000/parts/${_id}`
+            const url = `https://warm-sierra-55591.herokuapp.com/parts/${_id}`
         fetch(url, {
               method: 'DELETE', 
           })

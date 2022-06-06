@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [reload, setIsReload] = useState(true);
 
     useEffect( () => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://warm-sierra-55591.herokuapp.com/parts')
         .then(res => res.json())
         .then(data => setManageProducts(data));
     }, [reload]);
